@@ -1,0 +1,58 @@
+/* COMP 4537 - Lab 1 */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 1em;
+}
+
+#controls {
+    margin-bottom: 1em;
+}
+
+#countLabel {
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+#inputRow {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+}
+
+#countInput {
+    padding: 0.3em;
+    width: 12em;
+}
+
+#message {
+    font-size: 1.2em;
+    font-weight: bold;
+    min-height: 1.4em;
+}
+
+#buttonArea {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+
+.memoryButton {
+    height: 5em;
+    width: 10em;
+    font-size: 1em;
+    border: 1px solid #333;
+    cursor: default;
+}
+
+.memoryButton.clickable {
+    cursor: pointer;
+}
+
+/* Applied once scrambling starts so buttons can be placed anywhere */
+.memoryButton.scattered {
+    position: absolute;
+    margin: 0;
+}
