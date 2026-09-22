@@ -7,7 +7,7 @@
 
 import { MESSAGES } from "../lang/messages/en/user.js";
 import { Note } from "./note.js";
-import { readNotesFromStorage, writeNotesToStorage } from "./storage.js";
+import { NoteStorage } from "./storage.js";
 
 const SAVE_INTERVAL_MS = 2000;
 
@@ -42,7 +42,7 @@ class WriterPage {
     }
 
     loadExistingNotes() {
-        const savedTexts = readNotesFromStorage();
+        const savedTexts = NoteStorage.read();
         savedTexts.forEach((text) => this.addNote(text, false));
     }
 
@@ -77,7 +77,7 @@ class WriterPage {
 
     persist() {
         const texts = this.notes.map((note) => note.text);
-        writeNotesToStorage(texts);
+        NoteStorage.write(texts);
         this.isDirty = false;
         this.updateStatus();
     }

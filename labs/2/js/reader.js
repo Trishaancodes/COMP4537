@@ -7,7 +7,7 @@
 
 import { MESSAGES } from "../lang/messages/en/user.js";
 import { Note } from "./note.js";
-import { NOTES_STORAGE_KEY, readNotesFromStorage } from "./storage.js";
+import { NoteStorage } from "./storage.js";
 
 const POLL_INTERVAL_MS = 2000;
 
@@ -31,7 +31,7 @@ class ReaderPage {
         this.statusTime.textContent = MESSAGES.NOT_YET_UPDATED;
 
         window.addEventListener("storage", (event) => {
-            if (event.key === NOTES_STORAGE_KEY) {
+            if (event.key === NoteStorage.KEY) {
                 this.refresh();
             }
         });
@@ -41,7 +41,7 @@ class ReaderPage {
     }
 
     refresh() {
-        const texts = readNotesFromStorage();
+        const texts = NoteStorage.read();
         if (this.textsChanged(texts)) {
             this.render(texts);
         }
