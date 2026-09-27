@@ -1,0 +1,39 @@
+{
+  "info": {
+    "name": "COMP 4537 Lab 3 - Gemini",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      { "key": "key", "value": "x-goog-api-key", "type": "string" },
+      { "key": "value", "value": "{{apiKey}}", "type": "string" },
+      { "key": "in", "value": "header", "type": "string" }
+    ]
+  },
+  "variable": [
+    { "key": "apiKey", "value": "PASTE_YOUR_KEY_HERE" },
+    { "key": "model", "value": "gemini-2.5-flash" }
+  ],
+  "item": [
+    {
+      "name": "1 - List models",
+      "request": {
+        "method": "GET",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models"
+      }
+    },
+    {
+      "name": "2 - Generate song",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/{{model}}:generateContent",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"contents\": [{\n    \"parts\": [{ \"text\": \"Write a short song about my life as a BCIT student learning JavaScript\" }]\n  }]\n}"
+        }
+      }
+    }
+  ]
+}
