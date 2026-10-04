@@ -1,0 +1,13 @@
+{
+  "name": "comp4537-lab4",
+  "version": "1.0.0",
+  "private": true,
+  "description": "COMP 4537 Lab 4: server-rendered GET API, file append/read",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
